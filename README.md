@@ -1,4 +1,6 @@
-# Introduction
+# Arduino Source Code for "The Machine"
+
+## Introduction
 
 This repository contains the Arduino code for the project "The Machine"
 realised during the last week of School of Ma's "Winner and Losers" course, by
@@ -19,7 +21,7 @@ user picks up a coin and inserts it into the coin slot.  Then, they press one
 of the three buttons.  Finally, the reels start spinning, and stop on random
 phrases, creating a sentence.
 
-# Technical Implementation
+## Technical Implementation
 
 The Machine is made of the following components:
 
@@ -37,14 +39,14 @@ The Machine is made of the following components:
 - An additional set of Neo-Pixels around the coin slot, controlled by a third
   Arduino Uno
 
-## The Coin Slot
+### The Coin Slot
 
 The coin slot is a cardboard tube, attached to the front of the machine.
 Within this tube are a blue LED facing a light sensor.  While falling, a coin
 inserted into the slot will block the light for a few miliseconds, which is
 detected by the light sensor.
 
-## The Cardboard Reels
+### The Cardboard Reels
 
 The reels have three main components:
 
@@ -58,14 +60,14 @@ The magnet and Reed switch are used for calibrating the motor.  When the motor
 rotates, the (rotating) magnet passes in front of the (static) Reed switch,
 closing the circuit.
 
-# Description of the Source Code
+## Description of the Source Code
 
 The code provided in this repository is the Arduino code for the motor driver
 and master controller handling the UI and logic.  The driver code is given in
 the `driver/` directory, while the master controller is given in the
 `controller/` directory.
 
-## The Motor Driver
+### The Motor Driver
 
 The driver code is structured in the following way.  The `StepMotor` class (in
 `StepMotor.h`) describes a stepper motor controlled by four input pins.  It
@@ -120,7 +122,7 @@ When requested by the master, the driver sends three bytes of data,
 corresponding to the state of each motor (`0` being idle, `1` being running a
 command).
 
-## The Controller
+### The Controller
 
 The main code for the controller is given in `controller.ino`.  Due to the time
 constraints of the project, its code is not the cleanest.  Two helper classes
